@@ -26,46 +26,58 @@ Este proyecto es una aplicación fullstack desarrollada como prueba técnica par
 my-fullstack-app/
 ├── backend/     # API REST con NestJS
 └── frontend/    # Aplicación cliente con Vue 3
-🔧 Cómo correr el proyecto
-1. Clonar el repositorio
+```
+## 🔧 Cómo correr el proyecto
 
+### 1. Clonar el repositorio
+
+``` bash
 git clone https://github.com/tu-usuario/fullstack-nest-vue.git
 cd fullstack-nest-vue
-2. Configurar y ejecutar el Backend
+```
 
+### 2. Configurar y ejecutar el Backend
+``` bash
 cd backend
 npm install
+```
 Crear un archivo .env con la cadena de conexión a MongoDB:
 
 
+```bash
 MONGO_URI=mongodb://localhost:27017/miapp
 PORT=3000
+```
+
 Luego, correr el backend:
 
-
+```bash
 npm run start:dev
+```
 La API estará disponible en: http://localhost:3000
 
-3. Configurar y ejecutar el Frontend
+### 3. Configurar y ejecutar el Frontend
 
+```bash
 cd ../frontend
 npm install
 npm run dev
 La app Vue estará en: http://localhost:5173
+```
 
-✨ Funcionalidades del Proyecto
-👤 Registro y gestión de usuarios.
+# ✨ Funcionalidades del Proyecto
+### 👤 Registro y gestión de usuarios.
 
-📦 Gestión de productos.
+### 📦 Gestión de productos.
 
-🛒 Carrito de compras por usuario.
+### 🛒 Carrito de compras por usuario.
 
-⚙️ CRUD completo desde la API y el frontend.
+### ⚙️ CRUD completo desde la API y el frontend.
 
 Validaciones, modularidad y buenas prácticas de desarrollo.
 
-📌 Estructura del Backend
-
+# 📌 Estructura del Backend
+```bash
 backend/
 ├── users/        ← Gestión de usuarios
 ├── products/     ← Productos disponibles
@@ -73,8 +85,10 @@ backend/
 ├── common/       ← Validaciones, utilidades, filtros, etc.
 ├── main.ts       ← Punto de entrada
 └── app.module.ts ← Módulo principal
-📌 Estructura del Frontend
+```
+# 📌 Estructura del Frontend
 
+```bash
 frontend/
 ├── views/         ← Vistas principales (Home, Cart, Products)
 ├── components/    ← Componentes reutilizables
@@ -82,19 +96,8 @@ frontend/
 ├── services/      ← Llamadas a la API (Axios)
 ├── router/        ← Rutas de la app
 └── main.ts        ← Montaje de app, Pinia y Router
+```
 
-🧠 Buenas prácticas implementadas
+# 📬 Contacto
 
-Separación de capas (DTO, Schema, Service, Controller).
-
-Validaciones de entrada en el backend.
-
-Estado global con Pinia en el frontend.
-
-Componentes reutilizables y rutas claras.
-
-Código organizado y tipado (TypeScript en ambos lados).
-
-📬 Contacto
-
-Proyecto desarrollado como prueba técnica. Para más información, puedes escribirme a [tuemail@correo.com] o visitar mi perfil en GitHub: https://github.com/tu-usuario
+Proyecto desarrollado como prueba técnica. Para más información, puedes escribirme a alejandrobeltran7889@gmail.com o visitar mi perfil en GitHub: https://github.com/Androgb

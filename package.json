@@ -1,0 +1,17 @@
+{
+  "name": "fullstackproject",
+  "version": "1.0.0",
+  "description": "Este proyecto es una aplicación fullstack desarrollada como prueba técnica para el cargo de desarrollador fullstack junior. Se compone de un backend hecho con **NestJS + Mongoose** y un frontend hecho con **Vue 3 + TypeScript**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run start:dev --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

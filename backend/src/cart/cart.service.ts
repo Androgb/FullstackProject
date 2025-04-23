@@ -9,31 +9,36 @@ export class CartService {
   constructor(@InjectModel(Cart.name) private cartModel: Model<CartDocument>) {}
 
   async addToCart(dto: AddToCartDto) {
-    const { ownerId, productId, quantity } = dto;
-    const ownerObjectId = new Types.ObjectId(ownerId);
+    try {
+      const { ownerId, productId, quantity } = dto;
+      const ownerObjectId = new Types.ObjectId(ownerId);
+      const productObjectId = new Types.ObjectId(productId);
 
-    let cart = await this.cartModel.findOne({ owner: ownerObjectId });
+      let cart = await this.cartModel.findOne({ owner: ownerObjectId });
 
-    if (!cart) {
-      cart = await this.cartModel.create({
-        owner: new Types.ObjectId(ownerId),
-        items: [{ product: productId, quantity }],
-      });
-    } else {
-      const itemIndex = cart.items.findIndex(
-        (item) => item.product.toString() === productId,
-      );
-
-      if (itemIndex > -1) {
-        cart.items[itemIndex].quantity += quantity;
+      if (!cart) {
+        cart = await this.cartModel.create({
+          owner: ownerObjectId,
+          items: [{ product: productObjectId, quantity }],
+        });
       } else {
-        cart.items.push({ product: new Types.ObjectId(productId), quantity });
+        const itemIndex = cart.items.findIndex(
+          (item) => item.product.toString() === productId,
+        );
+
+        if (itemIndex > -1) {
+          cart.items[itemIndex].quantity += quantity;
+        } else {
+          cart.items.push({ product: productObjectId, quantity });
+        }
+
+        await cart.save();
       }
-
-      await cart.save();
+      return cart;
+    } catch (err) {
+      console.error('Error en addToCart:', err);
+      throw err;
     }
-
-    return cart;
   }
 
   async getCart(ownerId: string) {

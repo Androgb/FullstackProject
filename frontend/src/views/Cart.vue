@@ -41,5 +41,20 @@ const updateQuantity = async (productId, change) => {
   await fetchCart()
 }
 
-onMounted(fetchCart)
+onMounted(() => {
+  if (userStore.user?._id) {
+    fetchCart()
+  } else {
+    // Espera a que se defina el usuario
+    const stop = watch(
+      () => userStore.user,
+      (newUser) => {
+        if (newUser?._id) {
+          fetchCart()
+          stop() // dejamos de observar
+        }
+      }
+    )
+  }
+})
 </script>

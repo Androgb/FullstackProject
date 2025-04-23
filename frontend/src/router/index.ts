@@ -7,7 +7,7 @@ import Users from '@/views/Users.vue'
 import { useUserStore }  from '@/stores/userStore'
 
   const routes = [
-    { path: '/login', name: 'Login', component: Login },
+    { path: '/', name: 'Login', component: Login },
     { path: '/register', component: Register },
     { path: '/home', component: Home, meta: { requiresAuth: true } },
     { path: '/cart', component: Cart, meta: { requiresAuth: true } },
@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
   const isAdmin = userStore.user?.role === 'admin'
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/login')
+    next('/')
   } else if (to.meta.requiresAdmin && !isAdmin) {
     next('/home') // o muestra una página de acceso denegado
   } else {

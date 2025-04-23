@@ -8,7 +8,7 @@ const userStore = useUserStore()
 
 <template>
   <div id="app">
-    <header v-if="route.path !== '/login' && route.path !== '/register'">
+    <header v-if="route.path !== '/' && route.path !== '/register'">
       <nav>
         <RouterLink to="/register">Register</RouterLink> |
         <RouterLink to="/home">Home</RouterLink> |
